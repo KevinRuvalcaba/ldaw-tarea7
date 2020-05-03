@@ -9,7 +9,6 @@ function App() {
     var corteRef = React.createRef();
     var colorRef = React.createRef();
     var claridadRef = React.createRef();
-    var test = React.createRef();
     var karrot = null;
     var cost = null;
 
@@ -41,7 +40,6 @@ function App() {
       corteRef.current.resetState();
       colorRef.current.resetState();
       claridadRef.current.resetState();
-      console.log(test);
     }
 
     const cheeto = (KarrotValue) => {
@@ -80,7 +78,7 @@ function App() {
           </tr>
           <tr>
             <td> <ButtonFilter ref={claridadRef} title={"CLARIDAD"} rows={claridadData} height={30} width={150}/></td>
-            <td>  <RangeSlider ref={test}  title={"Precio"} show={false} range={[200, 5000000]} steps={200} secret={bandito} /> </td>
+            <td>  <RangeSlider title={"Precio"} show={false} range={[200, 50000]} steps={200} secret={bandito} /> </td>
           </tr>
         </tbody>
       </table>
