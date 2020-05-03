@@ -14,12 +14,20 @@ function valuetext(value) {
 
 export default function RangeSlider(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState([0.5, 30.0]);
+    const [value, setValue] = React.useState([props.range[0], props.range[1]]);
   
     const handleChange = (event, newValue) => {
         props.secret(newValue);
         setValue(newValue);
     };
+
+    const lowerChange = (event) => {
+        setValue([value[0]+props.steps, value[1]]);
+    }
+
+    const highChange = (event) => {
+        setValue([value[0], value[1]-props.steps]);
+    }
   
     return (
       <div className={classes.root} style={{"margin-left": "20px"}}>
@@ -41,13 +49,13 @@ export default function RangeSlider(props) {
           valueLabelDisplay="auto"
           aria-labelledby="range-slider"
           getAriaValueText={valuetext}
-          min={0.50}
-          max={30.00}
-          step={0.5}
+          min={props.range[0]}
+          max={props.range[1]}
+          step={props.range[0]}
         />
         <table>
-            <td> <input type="number" id="lowEnd" name="points" step="0.5" style={{"width":"50px"}}/></td>
-            <td style={{"margin-left": "100px"}}>  <input type="number" id="highEnd" name="points" step="0.5" style={{"width":"50px"}}/></td>
+            <td> <input value={value[0]} onChange={lowerChange} type="number" id="lowEnd" name="points" step="props.range[0]" style={{"width":"70px"}}/></td>
+            <td style={{"margin-left": "100px"}}>  <input onChange={highChange} value={value[1]}  type="number" id="highEnd" name="points" step="props.range[0]" style={{"width":"70px"}}/></td>
         </table>
         <div>
             

@@ -76,11 +76,11 @@ function App() {
           </tr>
           <tr>
             <td><ButtonFilter ref={colorRef} title={"COLOR"} rows={colorData} height={30} width={150}/> </td>
-            <td>  <RangeSlider title={"Quilataje"} show={true}  secret={cheeto} /></td>
+            <td>  <RangeSlider title={"Quilataje"} show={true} range={[0.5, 30.0]} steps={0.5} secret={cheeto} /></td>
           </tr>
           <tr>
             <td> <ButtonFilter ref={claridadRef} title={"CLARIDAD"} rows={claridadData} height={30} width={150}/></td>
-            <td>  <RangeSlider ref={test}  title={"Precio"} show={false} secret={bandito} /> </td>
+            <td>  <RangeSlider ref={test}  title={"Precio"} show={false} range={[200, 5000000]} steps={200} secret={bandito} /> </td>
           </tr>
         </tbody>
       </table>
